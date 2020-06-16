@@ -19,9 +19,7 @@ This function should only modify configuration layer settings."
    ;; variable `dotspacemacs-configuration-layers' to install it.
    ;; (default 'unused) dotspacemacs-enable-lazy-installation 'unused
    ;; If non-nil then Spacemacs will ask for confirmation before installing
-   ;; a layer lazily. (default t)
-   dotspacemacs-ask-for-lazy-installation
-   t
+   ;; a layer lazily. (default t) dotspacemacs-ask-for-lazy-installation t
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
    dotspacemacs-configuration-layer-path
@@ -79,13 +77,14 @@ This function should only modify configuration layer settings."
      syntax-checking
      ;; version-control
      ;; treemacs
-     (treemacs :variables treemacs-use-scope-type'Perspectives
-               treemacs-use-follow-mode t)
+     ;; (treemacs :variables treemacs-use-scope-type'Perspectives
+     ;;           treemacs-use-follow-mode t)
      prettier
      unicode-fonts
      ranger
      themes-megapack
      graphviz
+     (neotree)
      (colors :variables colors-colorize-identifiers'variables
              colors-enable-nyan-cat-progress-bar
              (display-graphic-p))
@@ -145,9 +144,7 @@ It should only modify the values of Spacemacs settings."
    ;; To load it when starting Emacs add the parameter `--dump-file'
    ;; when invoking Emacs 27.1 executable on the command line, for instance:
    ;;   ./emacs --dump-file=$HOME/.emacs.d/.cache/dumps/spacemacs-27.1.pdmp
-   ;; (default spacemacs-27.1.pdmp)
-   dotspacemacs-emacs-dumper-dump-file
-   (format "spacemacs-%s.pdmp" emacs-version)
+   ;; (default spacemacs-27.1.pdmp) dotspacemacs-emacs-dumper-dump-file (format "spacemacs-%s.pdmp" emacs-version)
    ;; If non-nil ELPA repositories are contacted via HTTPS whenever it's
    ;; possible. Set it to nil if you have no way to use HTTPS in your
    ;; environment, otherwise it is strongly recommended to let it set to t.
@@ -260,9 +257,13 @@ It should only modify the values of Spacemacs settings."
    t
    ;; Default font or prioritized list of fonts.
    dotspacemacs-default-font
-   '("Source Code Pro" :size 15.0
+   '("JetBrains Mono" :size 13
+    :spacing 1.2
      :weight normal
      :width normal)
+   ;; '("Source Code Pro" :size 15.0
+   ;;   :weight normal
+   ;;   :width normal)
    ;; The leader key (default "SPC")
    dotspacemacs-leader-key
    "SPC"
@@ -354,7 +355,7 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil the frame is fullscreen when Emacs starts up. (default nil)
    ;; (Emacs 24.4+ only)
    dotspacemacs-fullscreen-at-startup
-   t
+   nil
    ;; If non-nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
    ;; Use to disable fullscreen animations in OSX. (default nil)
    dotspacemacs-fullscreen-use-non-native
@@ -526,7 +527,8 @@ dump.")
 This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
-before packages are loaded.")
+before packages are loaded."
+  (setq neo-theme 'icons))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -535,96 +537,29 @@ before packages are loaded.")
 This is an auto-generated function, do not modify its content directly, use
 Emacs customize menu instead.
 This function is called at the very end of Spacemacs initialization."
-  (custom-set-variables
-   ;; custom-set-variables was added by Custom.
-   ;; If you edit it by hand, you could mess it up, so be careful.
-   ;; Your init file should contain only one such instance.
-   ;; If there is more than one, they won't work right.
-   '(evil-want-Y-yank-to-eol nil)
-   '(package-selected-packages (quote (zenburn-theme zen-and-art-theme white-sand-theme
-                                                     underwater-theme ujelly-theme twilight-theme
-                                                     twilight-bright-theme twilight-anti-bright-theme
-                                                     toxi-theme tao-theme tangotango-theme tango-plus-theme
-                                                     tango-2-theme sunny-day-theme sublime-themes
-                                                     subatomic256-theme subatomic-theme spacegray-theme
-                                                     soothe-theme solarized-theme soft-stone-theme
-                                                     soft-morning-theme soft-charcoal-theme smyx-theme
-                                                     seti-theme reverse-theme rebecca-theme railscasts-theme
-                                                     purple-haze-theme professional-theme posframe
-                                                     planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme
-                                                     organic-green-theme omtose-phellack-theme
-                                                     oldlace-theme occidental-theme obsidian-theme
-                                                     noctilux-theme naquadah-theme mustang-theme
-                                                     monokai-theme monochrome-theme molokai-theme
-                                                     moe-theme modus-vivendi-theme modus-operandi-theme
-                                                     minimal-theme material-theme majapahit-theme
-                                                     madhat2r-theme lush-theme light-soap-theme
-                                                     kaolin-themes jbeans-theme jazz-theme ir-black-theme
-                                                     inkpot-theme heroku-theme hemisu-theme hc-zenburn-theme
-                                                     gruvbox-theme gruber-darker-theme grandshell-theme
-                                                     gotham-theme gandalf-theme flatui-theme flatland-theme
-                                                     farmhouse-theme eziam-theme exotica-theme
-                                                     espresso-theme dracula-theme doom-themes django-theme
-                                                     darktooth-theme darkokai-theme darkmine-theme
-                                                     darkburn-theme dap-mode bui dakrone-theme
-                                                     cyberpunk-theme color-theme-sanityinc-tomorrow
-                                                     color-theme-sanityinc-solarized clues-theme
-                                                     chocolate-theme autothemer cherry-blossom-theme
-                                                     busybee-theme bubbleberry-theme birds-of-paradise-plus-theme
-                                                     badwolf-theme apropospriate-theme anti-zenburn-theme
-                                                     ample-zen-theme ample-theme alect-themes afternoon-theme
-                                                     yapfify ws-butler winum which-key volatile-highlights
-                                                     vi-tilde-fringe uuidgen use-package toc-org
-                                                     spaceline powerline smeargle restart-emacs
-                                                     rainbow-delimiters pyvenv pytest pyenv-mode
-                                                     py-isort popwin pip-requirements persp-mode
-                                                     pcre2el paradox spinner orgit org-projectile
-                                                     org-category-capture org-present org-pomodoro
-                                                     alert log4e gntp org-plus-contrib org-mime
-                                                     org-download org-bullets open-junk-file neotree
-                                                     move-text mmm-mode markdown-toc markdown-mode
-                                                     magit-gitflow magit-popup macrostep lorem-ipsum
-                                                     live-py-mode linum-relative link-hint indent-guide
-                                                     hydra lv hy-mode dash-functional hungry-delete
-                                                     htmlize hl-todo highlight-parentheses highlight-numbers
-                                                     parent-mode highlight-indentation helm-themes
-                                                     helm-swoop helm-pydoc helm-projectile projectile
-                                                     pkg-info epl helm-mode-manager helm-make helm-gitignore
-                                                     request helm-flx helm-descbinds helm-company
-                                                     helm-c-yasnippet helm-ag google-translate
-                                                     golden-ratio gnuplot gitignore-mode gitconfig-mode
-                                                     gitattributes-mode git-timemachine git-messenger
-                                                     git-link gh-md fuzzy flx-ido flx fill-column-indicator
-                                                     fancy-battery eyebrowse expand-region exec-path-from-shell
-                                                     evil-visualstar evil-visual-mark-mode evil-unimpaired
-                                                     evil-tutor evil-surround evil-search-highlight-persist
-                                                     highlight evil-numbers evil-nerd-commenter
-                                                     evil-mc evil-matchit evil-magit magit git-commit
-                                                     with-editor transient evil-lisp-state smartparens
-                                                     evil-indent-plus evil-iedit-state iedit evil-exchange
-                                                     evil-escape evil-ediff evil-args evil-anzu
-                                                     anzu evil goto-chg undo-tree eval-sexp-fu
-                                                     elisp-slime-nav dumb-jump disaster diminish
-                                                     define-word cython-mode company-statistics
-                                                     company-c-headers company-anaconda company
-                                                     column-enforce-mode cmake-mode clean-aindent-mode
-                                                     clang-format bind-map bind-key auto-yasnippet
-                                                     yasnippet auto-highlight-symbol auto-compile
-                                                     packed anaconda-mode pythonic f dash s aggressive-indent
-                                                     adaptive-wrap ace-window ace-link ace-jump-helm-line
-                                                     helm avy helm-core async ac-ispell auto-complete
-                                                     popup)))
-   '(safe-local-variable-values (quote ((cmake-ide-build-dir . build)
-                                        (cmake-ide-build-dir . "build")
-                                        (javascript-backend . tide)
-                                        (javascript-backend . tern)
-                                        (javascript-backend . lsp)))))
-  (custom-set-faces
-   ;; custom-set-faces was added by Custom.
-   ;; If you edit it by hand, you could mess it up, so be careful.
-   ;; Your init file should contain only one such instance.
-   ;; If there is more than one, they won't work right.
-   ))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(evil-want-Y-yank-to-eol nil)
+ '(package-selected-packages
+   (quote
+    (posframe dap-mode lsp-treemacs bui treemacs pfuture yapfify ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smeargle restart-emacs rainbow-delimiters pyvenv pytest pyenv-mode py-isort popwin pip-requirements persp-mode pcre2el paradox spinner orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-plus-contrib org-mime org-download org-bullets open-junk-file neotree move-text mmm-mode markdown-toc markdown-mode magit-gitflow magit-popup macrostep lorem-ipsum live-py-mode linum-relative link-hint indent-guide hydra lv hy-mode dash-functional hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-pydoc helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-gitignore request helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit magit git-commit with-editor transient evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump disaster diminish define-word cython-mode company-statistics company-c-headers company-anaconda company column-enforce-mode cmake-mode clean-aindent-mode clang-format bind-map bind-key auto-yasnippet yasnippet auto-highlight-symbol auto-compile packed anaconda-mode pythonic f dash s aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core async ac-ispell auto-complete popup)))
+ '(safe-local-variable-values
+   (quote
+    ((cmake-ide-build-dir . build)
+     (cmake-ide-build-dir . "build")
+     (javascript-backend . tide)
+     (javascript-backend . tern)
+     (javascript-backend . lsp)))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
