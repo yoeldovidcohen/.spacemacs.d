@@ -26,29 +26,24 @@ This function should only modify configuration layer settings."
    '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '((typescript :varibles typescript-fmt-tool'prettier
-                 typescript-linter 'eslint typescript-backend
-                 'lsp typescript-lsp-linter nil typescript-fmt-on-save
-                 t
-                 ;; typescript-lsp 
+   '(
+
+
+          (typescript :varibles
+                 typescript-backend 'lsp
+                 typescript-fmt-tool 'prettier
                  )
-     (html :varibles web-fmt-tool'prettier css-enable-lsp
-           t less-enable-lsp t scss-enable-lsp t html-enable-lsp
-           t)
-     ;; javascript
-     (javascript :variables javascript-backend'lsp
-                 javascript-import-tool 'import-js javascript-fmt-tool
-                 'prettier javascript-fmt-on-save t
-                 ;; javascript-lsp-linter 
-                 ;; javascript-eslint t
-                 )
-     ;; tern 
-     (python :varibles python-backend'lsp python-sort-imports-on-save
+     (javascript :varibles
+                 javascript-backend 'lsp
+                 javascript-fmt-tool 'prettier)
+     (html :varibles web-fmt-tool 'prettier
+           css-enable-lsp t
+           less-enable-lsp t
+           scss-enable-lsp t
+           html-enable-lsp t)
+      (python :varibles python-backend'lsp python-sort-imports-on-save
              t)
-     ;; (c-c++ :varibles
-     ;;  c-c++-backend 'rtags
-     ;;  )
-     (c-c++ :variables c-c++-adopt-subprojects
+          (c-c++ :variables c-c++-adopt-subprojects
             t c-c++-backend 'lsp-ccls c-c++-lsp-enable-semantic-highlight
             'rainbow)
      (cmake :varibles cmake-enable-cmake-ide-support
@@ -68,11 +63,10 @@ This function should only modify configuration layer settings."
      lsp
      markdown
      multiple-cursors
-     (org :variables org-enable-org-journal-support
-          t)
+     (org :variables org-enable-org-journal-support t
+          )
      (shell :variables shell-default-height
-            30 shell-default-shell 'vterm shell-default-position
-            'bottom)
+            30 shell-default-shell 'vterm shell-default-position 'bottom)
      spell-checking
      syntax-checking
      ;; version-control
@@ -85,15 +79,15 @@ This function should only modify configuration layer settings."
      themes-megapack
      graphviz
      (neotree)
-     (colors :variables colors-colorize-identifiers'variables
+     (colors :variables colors-colorize-identifiers 'variables
              colors-enable-nyan-cat-progress-bar
              (display-graphic-p))
      ;; (geolocation :variables
      ;;              ;; geolocation-enable-automatic-theme-changer t geolocation-enable-location-service
      ;;              t geolocation-enable-weather-forecast t)
      semantic
-     (terraform :variables terraform-auto-format-on-save
-                t)
+     (terraform :variables terraform-auto-format-on-save t
+                )
      ;; spacemacs-editing
      ;; spacemacs-editing-visual
      )
@@ -501,6 +495,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-pretty-docs
    nil))
 
+
 (defun dotspacemacs/user-env ()
   "Environment variables setup.
 This function defines the environment variables for your Emacs session. By
@@ -510,6 +505,9 @@ See the header of this file for more information."
   (spacemacs/load-spacemacs-env))
 
 (defun dotspacemacs/user-init ()
+
+;;                               (setq configuration-layer-elpa-archives '(("melpa" . "melpa.org/packages/")  ("org" . "orgmode.org/elpa/") ("gnu" . "elpa.gnu.org/packages/")))
+;;                              )
   "Initialization for user code:
 This function is called immediately after `dotspacemacs/init', before layer
 configuration.
@@ -542,10 +540,13 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("a24c5b3c12d147da6cef80938dca1223b7c7f70f2f382b26308eba014dc4833a" default)))
  '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
    (quote
-    (posframe dap-mode lsp-treemacs bui treemacs pfuture yapfify ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smeargle restart-emacs rainbow-delimiters pyvenv pytest pyenv-mode py-isort popwin pip-requirements persp-mode pcre2el paradox spinner orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-plus-contrib org-mime org-download org-bullets open-junk-file neotree move-text mmm-mode markdown-toc markdown-mode magit-gitflow magit-popup macrostep lorem-ipsum live-py-mode linum-relative link-hint indent-guide hydra lv hy-mode dash-functional hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-pydoc helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-gitignore request helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit magit git-commit with-editor transient evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump disaster diminish define-word cython-mode company-statistics company-c-headers company-anaconda company column-enforce-mode cmake-mode clean-aindent-mode clang-format bind-map bind-key auto-yasnippet yasnippet auto-highlight-symbol auto-compile packed anaconda-mode pythonic f dash s aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core async ac-ispell auto-complete popup)))
+    (tern posframe dap-mode lsp-treemacs bui treemacs pfuture yapfify ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smeargle restart-emacs rainbow-delimiters pyvenv pytest pyenv-mode py-isort popwin pip-requirements persp-mode pcre2el paradox spinner orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-plus-contrib org-mime org-download org-bullets open-junk-file neotree move-text mmm-mode markdown-toc markdown-mode magit-gitflow magit-popup macrostep lorem-ipsum live-py-mode linum-relative link-hint indent-guide hydra lv hy-mode dash-functional hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-pydoc helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-gitignore request helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit magit git-commit with-editor transient evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump disaster diminish define-word cython-mode company-statistics company-c-headers company-anaconda company column-enforce-mode cmake-mode clean-aindent-mode clang-format bind-map bind-key auto-yasnippet yasnippet auto-highlight-symbol auto-compile packed anaconda-mode pythonic f dash s aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core async ac-ispell auto-complete popup)))
  '(safe-local-variable-values
    (quote
     ((cmake-ide-build-dir . build)
