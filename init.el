@@ -258,8 +258,8 @@ It should only modify the values of Spacemacs settings."
    ;; Default font or prioritized list of fonts.
    dotspacemacs-default-font
    '("JetBrains Mono" :size 13
-    :spacing 1.2
-     :weight normal
+;;     :spacing 1.2
+;;     :weight normal
      :width normal)
    ;; '("Source Code Pro" :size 15.0
    ;;   :weight normal
