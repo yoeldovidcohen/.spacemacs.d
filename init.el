@@ -78,7 +78,7 @@ This function should only modify configuration layer settings."
      ranger
      themes-megapack
      graphviz
-     (neotree)
+;;     (neotree)
      (colors :variables colors-colorize-identifiers 'variables
              colors-enable-nyan-cat-progress-bar
              (display-graphic-p))
