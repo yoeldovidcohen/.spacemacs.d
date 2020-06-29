@@ -84,7 +84,7 @@ This function should only modify configuration layer settings."
      (treemacs :variables treemacs-use-scope-type'Perspectives
                treemacs-use-follow-mode t)
      unicode-fonts
-     ranger
+     ;; ranger
      themes-megapack
      graphviz
 ;;     (neotree)
